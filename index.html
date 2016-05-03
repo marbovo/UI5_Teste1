@@ -11,14 +11,15 @@
 	</script>
 	<script type="text/javascript">
 		sap.ui.getCore().attachInit(function () {
-			// create a mobile app and display page1 initially
+			// cria app
 			var app = new sap.m.App("myApp", {
 				initialPage: "page1"
 			});
-			// create the first page
+			// cria pagina 1
 			var page1 = new sap.m.Page("page1", {
 				title : "Hello World",
 				showNavButton : false,
+				//cria botão para página 2
 				content : new sap.m.Button({
 					text : "Go to Page 2",
 					press : function () {
@@ -27,16 +28,18 @@
 					}
 				})
 			});
-			// create the second page with a back button
+			// cria pagina 2
 			var page2 = new sap.m.Page("page2", {
 				title : "Hello Page 2",
 				showNavButton : true,
+				//cria botão para página 3
 				content : new sap.m.Button({
 					text : "pagina 3",
 					press : function(){
 						app.to("page3");
 					}
 				}),
+				//cria botão para voltar para página anterior
 				navButtonPress : function () {
 					// go back to the previous page
 					app.back();
@@ -46,12 +49,14 @@
 			var page3 = new sap.m.Page("page3", {
 				title : "Tela 3",
 				showNavButton : true,
+				//cria botão para página 4
 				content : new sap.m.Button({
 					text : "pagina 4",
 					press : function(){
 						app.to("page4");
 					}
 				}),
+				//cria botão para voltar para página anterior
 				navButtonPress: function(){
 				app.back();
 				}
@@ -62,21 +67,23 @@
 			var page4 = new sap.m.Page("page4", {
 				title : "Tela 4",
 				showNavButton : true,
+				//cria botão para página 1
 				content : new sap.m.Button({
 					text : "prim. pagina",
 					press : function(){
 						app.to("page1");
 					}
 				}),
+				//cria botão para voltar para página anterior
 				navButtonPress: function(){
 				app.back();
 				}
 
 			});
 
-			// add both pages to the app
+			// adiciona páginas no app
 			app.addPage(page1).addPage(page2).addPage(page3).addPage(page4);
-			// place the app into the HTML document
+			// coloca app no div content
 			app.placeAt("content");
 		});
 	</script>
